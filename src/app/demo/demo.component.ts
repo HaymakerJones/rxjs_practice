@@ -18,8 +18,11 @@ export class DemoComponent implements OnInit {
   }
 
   addValue(f: any) {
-
     this.ds.addValue(f.value);
+  }
+
+  removeValue(f: any) {
+    this.ds.removeValue(f.value);
   }
 
 }

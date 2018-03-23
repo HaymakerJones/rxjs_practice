@@ -14,7 +14,9 @@ export class DataService {
     newValue: Subject<number> = new Subject<number>();
     updates: Subject<any> = new Subject<any>();
 
+    //Action Streams
     create: Subject<number> = new Subject<number>();
+    remove: Subject<number> = new Subject<number>();
 
     constructor() {
         this.values = this.updates.scan(
@@ -23,6 +25,7 @@ export class DataService {
             .publishReplay(1)
             .refCount();
 
+        //Create action
         this.create.map(
             (value: number): ValueOperation => {
                 return (values: number[]) => {
@@ -32,10 +35,23 @@ export class DataService {
         ).subscribe(this.updates);
 
         this.newValue.subscribe(this.create);
+
+        //Remove action
+        this.remove.map(
+            (value: number): ValueOperation => {
+                return (values: number[]) => {
+                    return values.filter(x => x !== value);
+                }
+            }
+        ).subscribe(this.updates);
     }
 
     addValue(value: number): void {
         this.newValue.next(value);
+    }
+
+    removeValue(value: number): void {
+        this.remove.next(value);
     }
 }
 
