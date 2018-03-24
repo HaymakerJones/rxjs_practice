@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Person } from '../models/person.model';
 import { Observable, Subject } from 'rxjs/Rx';
 
+interface
+
 
 @Injectable()
 export class Data2Service {
