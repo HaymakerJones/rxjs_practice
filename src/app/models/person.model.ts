@@ -1,3 +1,9 @@
 export class Person {
-    constructor(name: string, age: number) { }
+    name: string;
+    age: number;
+
+    constructor(obj?: any) {
+        this.name = obj && obj.name || null;
+        this.age = obj && obj.age || null;
+    }
 }

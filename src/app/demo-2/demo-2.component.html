@@ -1,0 +1,12 @@
+<div *ngFor="let person of personList | async">
+  <p>
+    <span>Name:</span>{{person.name}}</p>
+  <p>
+    <span>Age:</span>{{person.age}}</p>
+</div>
+<div>
+  Name:
+  <input type="text" #userName> Age:
+  <input type="number" #userAge>
+</div>
+<button (click)="addPerson(userName, userAge)">Add Person</button>

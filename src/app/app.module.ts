@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { DATA_PROVIDER } from './services/data.service';
 import { DemoComponent } from './demo/demo.component';
 import { DATA_2_PROVIDER } from './services/data2.service';
+import { Demo2Component } from './demo-2/demo-2.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemoComponent
+    DemoComponent,
+    Demo2Component
   ],
   imports: [
     BrowserModule
